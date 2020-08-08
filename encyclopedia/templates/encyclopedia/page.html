@@ -7,4 +7,6 @@
 {% block body %}
     <h1>{{ title }}</h1>
     {{ content }}
+    <br>
+    <a href="{% url 'editPage' title=title%}">Edit</a>
 {% endblock %}
