@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import random
+import markdown2
 
 from . import util
 
@@ -13,7 +14,7 @@ def page(request, title):
 	entry = util.get_entry(title)
 	if entry != None:
 		return render(request, "encyclopedia/page.html", {
-		"title" : title, "content" : entry 
+		"title" : title, "content" : markdown2.markdown(entry) 
 		})
 	return render(request, "encyclopedia/error.html", {
 		"errorMessage" : "No such entry"
